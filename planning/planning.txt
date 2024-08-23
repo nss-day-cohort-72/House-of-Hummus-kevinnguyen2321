@@ -1,0 +1,32 @@
+main.js 
+- Responsible for importing in other modules that contain HTML. 
+main.js will also render the HTML imported from other modules
+
+Entrees.js
+-Responsible for creating  & exporting HTML input radio buttons for base dishes
+
+Vegetables.js
+-Responsible for creating  & exporting  HTML input radio buttons for vegetables
+
+Sidedishes.js
+-Responsible for creating & exporting HTML input radio buttons for sides
+
+purchaseBtn.js
+- Responsible for creating & exporting HTML button element
+
+transientState.js
+-Responsible for creating initial state of sales object with
+default values
+
+-Will have setter functions for each property on transient states.
+These setter funcitons will be exported to appropriate modules
+(ex. setSidesChoice will be exported to sides.js etc.)
+
+-Will also have purchaseCombo function that will send the current transient
+state to the sales array in the cypress.json data structure
+
+sales.js
+-will fetch data from sales array from json data structure
+-Will export HTML of sales information
+
+ 

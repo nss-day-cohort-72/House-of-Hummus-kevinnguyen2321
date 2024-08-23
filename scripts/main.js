@@ -2,7 +2,7 @@ import { FoodTruck } from "./FoodTruck.js"
 
 const mainContainer = document.querySelector("#container")
 
-const renderAllHTML = () => {
+export const renderAllHTML = () => {
     mainContainer.innerHTML = FoodTruck()
 }
 
