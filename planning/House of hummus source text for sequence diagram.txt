@@ -1,5 +1,5 @@
 title House of Hummus
-
+participant User
 participant Main.js
 participant Foodtruck.js
 participant Entrees.js
@@ -60,3 +60,26 @@ Foodtruck.js <- Sales.js: Here's the HTML for sales
 Main.js <- Foodtruck.js: Here's all the HTML for the page
 
 Main.js -> Main.js: Render Page
+
+User->Main.js:Clicks on entree option
+Entrees.js -> transientState.js:click event triggered and setEntrees() is invoked changing the transient state for entreeId
+
+transientState.js -> User: Logs the transient state
+
+User -> Main.js: Clicks on vegetable option
+Veggies.js -> transientState.js: click event triggered and setVeggie() is invoked changing the transient state for vegetableId
+
+User <- transientState.js: Logs the transient state
+
+User -> Main.js: Clicks on side dish option
+SideDishes.js -> transientState.js: clicked event triggered and setSide () is invoked changing transient state for sideId
+
+User <- transientState.js: Logs transient state
+
+User -> Main.js: Clicks on purchase button
+
+Foodtruck.js -> transientState.js: click event triggered and addPurchase () is invoked adding in transient state into purchases in the database
+
+Foodtruck.js -> Foodtruck.js: Custom event dispatched after purchase is added into database
+
+Main.js -> Main.js: Custom event is triggered and renderAllHTML() is invoked
