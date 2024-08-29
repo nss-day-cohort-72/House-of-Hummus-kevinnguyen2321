@@ -1,0 +1,62 @@
+title House of Hummus
+
+participant Main.js
+participant Foodtruck.js
+participant Entrees.js
+participant Veggies.js
+participant SideDishes.js
+participant Sales.js
+participant transientState.js
+participant Database.js
+
+Main.js->Foodtruck.js:Give me the HTML for the page\n
+Foodtruck.js->Entrees.js: Give me the HTML for entrees
+Entrees.js->Database.js: Give me all the data for entrees
+Database.js ->Entrees.js:Sure here you go
+
+loop 
+Entrees.js -> Entrees.js: Loop over entree options and create HTML
+end
+
+Foodtruck.js<- Entrees.js: Here's the HTML for entrees
+
+Foodtruck.js -> Veggies.js: Give me the HTML for vegetables
+
+Veggies.js -> Database.js: Give me all the data for veggies
+
+Database.js -> Veggies.js: Sure here you go
+
+loop 
+Veggies.js -> Veggies.js: Loop over veggies options and create HTML
+end
+
+
+Foodtruck.js <- Veggies.js: Here's the HTML for veggies
+
+Foodtruck.js -> SideDishes.js: Give me the HTML for side dishes
+
+SideDishes.js -> Database.js: Give me all the data for side dishes
+
+Database.js -> SideDishes.js: Sure here you go
+
+loop 
+SideDishes.js -> SideDishes.js: Loop over side dishes and create HTML
+end
+
+Foodtruck.js <- SideDishes.js: Here's the HTML for side dishes
+
+Foodtruck.js -> Sales.js: Give me the HTML for sales
+
+Sales.js -> Database.js: Give me all the getter functions for veggies,purchases, entrees, and sides
+
+Database.js -> Sales.js: Sure here you go
+
+loop 
+Sales.js -> Sales.js: Loop over over veggies,entrees,and side dishes to get prices and create HTML
+end
+
+Foodtruck.js <- Sales.js: Here's the HTML for sales
+
+Main.js <- Foodtruck.js: Here's all the HTML for the page
+
+Main.js -> Main.js: Render Page
